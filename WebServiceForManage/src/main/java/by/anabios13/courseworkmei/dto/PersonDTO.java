@@ -1,11 +1,7 @@
 package by.anabios13.courseworkmei.dto;
 
 import by.anabios13.courseworkmei.models.Directory;
-import by.anabios13.courseworkmei.models.Note;
 import by.anabios13.courseworkmei.models.Person;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 

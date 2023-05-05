@@ -4,10 +4,7 @@ import by.anabios13.courseworkmei.dto.ProfileDTO;
 import by.anabios13.courseworkmei.services.DirectoryService;
 import by.anabios13.courseworkmei.services.NoteService;
 import by.anabios13.courseworkmei.services.PeopleService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/profile")
@@ -30,4 +27,5 @@ public class UserProfileController {
       ProfileDTO profileDTO= new ProfileDTO(peopleService.findOne(id));
         return profileDTO;
     }
+
 }
