@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="by.anabios13.courseworkmei.CourseWorkMeiApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-13T06:09:24" hostname="DESKTOP-40M7ARN" time="0.231">
+  <properties/>
+  <testcase name="contextLoads()" classname="by.anabios13.courseworkmei.CourseWorkMeiApplicationTests" time="0.231"/>
+  <system-out><![CDATA[09:09:19.028 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [CourseWorkMeiApplicationTests]: using SpringBootContextLoader
+09:09:19.035 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [by.anabios13.courseworkmei.CourseWorkMeiApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+09:09:19.036 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [by.anabios13.courseworkmei.CourseWorkMeiApplicationTests]: CourseWorkMeiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+09:09:19.079 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [CourseWorkMeiApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+09:09:19.211 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [D:\JavaProjects\CourseWorkProj\CourseWorkMEI\WebServiceForManage\build\classes\java\main\by\anabios13\courseworkmei\CourseWorkMeiApplication.class]
+09:09:19.214 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration by.anabios13.courseworkmei.CourseWorkMeiApplication for test class by.anabios13.courseworkmei.CourseWorkMeiApplicationTests
+09:09:19.429 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [CourseWorkMeiApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+09:09:19.431 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [CourseWorkMeiApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.4)
+
+2023-05-13T09:09:19.921+03:00  INFO 18380 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : Starting CourseWorkMeiApplicationTests using Java 17.0.1 with PID 18380 (started by user in D:\JavaProjects\CourseWorkProj\CourseWorkMEI\WebServiceForManage)
+2023-05-13T09:09:19.923+03:00  INFO 18380 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2023-05-13T09:09:21.090+03:00  INFO 18380 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-13T09:09:21.206+03:00  INFO 18380 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100 ms. Found 4 JPA repository interfaces.
+2023-05-13T09:09:21.881+03:00  INFO 18380 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-13T09:09:22.184+03:00  INFO 18380 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@499ee966
+2023-05-13T09:09:22.188+03:00  INFO 18380 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-13T09:09:22.244+03:00  INFO 18380 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-13T09:09:22.314+03:00  INFO 18380 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-13T09:09:22.752+03:00  INFO 18380 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-13T09:09:23.657+03:00  INFO 18380 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-13T09:09:23.666+03:00  INFO 18380 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-13T09:09:24.363+03:00  WARN 18380 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-13T09:09:24.783+03:00  INFO 18380 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : Started CourseWorkMeiApplicationTests in 5.271 seconds (process running for 7.412)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
