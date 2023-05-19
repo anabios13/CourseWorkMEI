@@ -1,0 +1,37 @@
+:root{
+    --positive-color: #03588C;
+    --element-color: #049DBF;
+    --main-backgroumd-color: #D9D9D9;
+    --sub-background-color: #BDBBBB;
+    --border-element-radius: 20px;
+    --icon-size: 40px;
+    --element-height: 60px;
+}
+
+.icon {
+    height: var(--icon-size);
+    width: var(--icon-size);
+  
+    margin: 5px;
+  }
+
+  .catalog-actions {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+  
+    height: inherit;
+  
+    border-left: 5px;
+    border-left-style: solid;
+    border-left-color: black;
+  }
+  
+  .container {
+    box-sizing: border-box;
+    height: calc(100vh - var(--element-height));
+    box-sizing: border-box;
+    padding: 10px;
+  
+  }
+
