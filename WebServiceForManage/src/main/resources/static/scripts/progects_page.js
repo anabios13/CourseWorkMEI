@@ -21,9 +21,7 @@ function appendProject(element, parentId){
     let parent = document.querySelector("#" + parentId);
     let projectId = getId();
 
-
-    
-    let html ='<div id="p' + projectId + '" onclick="openCatalog(event);" class="project">' 
+    let html ='<div id="p' + projectId + '" onclick="openProject(event);" class="project">'
     + '<p class="catalog-name">' + element['progectName'] + '</p>'
      + '<div class="catalog-actions">'
          + '<img src="' + ((element['shared']) ? "eye-on.svg" : "eye-off.svg") + '" class="icon">'
@@ -95,7 +93,7 @@ function stopProjectSharing(event){
 }
 
 function backToStartPage(event){
-    document.querySelector("#start_page").classList.toggle("disabled");
+    document.querySelector("#main_page").classList.toggle("disabled");
     document.querySelector("#projects_page").classList.toggle("disabled");
 }
 
@@ -123,4 +121,8 @@ function saveProject(event){
 function createNewProject(event){
     document.querySelector("#projects_page").classList.toggle("disabled");
     document.querySelector("#projects_project_creation_window").classList.toggle("disabled");
+}
+
+function openProject(event){
+    console.log("Что-то там");
 }

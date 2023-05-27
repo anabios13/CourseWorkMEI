@@ -1,0 +1,82 @@
+#testing_page-question-window {
+    display: flex;
+}
+
+#testing_page-question-area {
+    width: calc(100% - 160px);
+    height: calc(100vh - var(--element-height) - 20px);
+    margin-right: 10px;
+}
+
+#testing_page-list-questions{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 150px;
+    height: fit-content;
+
+    margin-left: 10px;
+    padding: 5px;
+
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.testing_page-row-questions {
+    display: flex;
+}
+
+.testing_page-question {
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+
+    margin-right: 2px;
+    margin-left: 2px;
+    margin-bottom: 5px;
+}
+
+#testing_page-attachment iframe{
+    width: calc(100vw - 200px);
+    height: 65vh;
+
+    border-radius: var(--border-element-radius);
+    border: 2px solid black;
+}
+
+#testing_page-question-area{
+    box-sizing: border-box;
+
+    width: 100%;
+    height: inherit;
+
+    background-color: var(--main-backgroumd-color);
+    border-radius: var(--border-element-radius);
+
+    padding: 10px;
+}
+
+.testing_page-answer {
+    display: flex;
+    box-sizing: border-box;
+    width: calc(100%);
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.testing_page-selected-answer {
+    border: 4px solid blue;
+}
+
+.testing_page-selected-question {
+    border: 4px solid blue;
+}

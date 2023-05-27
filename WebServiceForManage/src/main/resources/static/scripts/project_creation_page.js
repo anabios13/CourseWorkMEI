@@ -1,21 +1,29 @@
 function addNewAnswer(event){
-    let html = '<div id="' + getNextAnswerId() + '" class="answer"><' +
+    let html = '<div class="answer"><' +
         'input type="checkbox">\n' +
-        '<input type="text">' +
+        '<p contentEditable></p>' +
+       ' <img onclick="deleteAnswer(event);" src="cross-circle.svg" class="icon">'+
         '</div>';
-    document.querySelector("#add-answer").insertAdjacentHTML("beforebegin", html);
+    let questionAreaId = "";
+    if (event.target.parentElement.parentElement.id != ""){
+        questionAreaId = event.target.parentElement.parentElement.id;
+    }else{
+        questionAreaId = event.target.parentElement.parentElement.parentElement.id;
+    }
+    let addAnswer = document.querySelector("#" + questionAreaId + " .add-answer");
+    addAnswer.insertAdjacentHTML("beforebegin", html);
+
+    addAnswer.scrollIntoView(false);
+}
+
+function deleteAnswer(event){
+    event.target.parentElement.remove();
 }
 
 var questionId = 0;
 function getNextQuestionId(){
     questionId += 1;
     return questionId;
-}
-
-var answerId = 0;
-function getNextAnswerId(){
-    answerId += 1;
-    return answerId;
 }
 
 function setPreviousQuestionId(){
@@ -50,20 +58,23 @@ function removeQuestion(event) {
 
 function addNewQuestion(){
     let questionId = getNextQuestionId();
-    let html = '<div id="question' + questionId + '" class="question">\n' +
+    let html = '<div onclick="selectQuestion(event)" id="question' + questionId + '" class="question">\n' +
         '           <p onclick="selectQuestion(event)">Вопрос ' + questionId +'</p>\n' +
         '            <img onclick="removeQuestion(event)" src="cross-circle.svg" class="icon">\n' +
         '        </div>'
-    document.querySelector("#add-question").insertAdjacentHTML("beforebegin", html);
+    let addQuestion = document.querySelector("#add-question");
+    addQuestion.insertAdjacentHTML("beforebegin", html);
 
-    let questionArea = '<div id="q' + questionId + '" class="question-area">\n' +
+    addQuestion.scrollIntoView(false);
+
+    let questionArea = '<div id="q' + questionId + '" class="question-area disabled">\n' +
         '                        <div class="geogebra-link">\n' +
         '                            <p>Сылка на график в GeoGebra</p>\n' +
         '                            <input type="text">\n' +
         '                        </div>\n' +
-        '                        <textarea class="question-text">Текст</textarea>\n' +
+        '                        <p class="question-text" contentEditable></p>\n' +
         '                        <div class="answer-buttons-list">\n' +
-        '                            <div onclick="addNewAnswer(event)" class="add-answer answer">\n' +
+        '                            <div onclick="addNewAnswer(event)" class="add-answer">\n' +
         '                                <img src="add.svg" alt="" class="icon">\n' +
         '                            </div>\n' +
         '                        </div>\n' +
@@ -74,12 +85,57 @@ function addNewQuestion(){
 var selectedQuestionId = ""
 
 function selectQuestion(event){
+    let questionAreaId = "";
+    if(selectedQuestionId != "" && selectedQuestionId != event.target.parentElement.id && selectedQuestionId != event.target.id){
+        document.querySelector("#" + selectedQuestionId).className = "question";
+        questionAreaId =selectedQuestionId.split("question")[1];
+        document.querySelector("#q" + questionAreaId).className = "question-area disabled";
+    }
     if(event.target.id == ""){
         event.target.parentElement.className = "question selected-question";
-        selectedQuestionId = event.target.parentElement.id
+        selectedQuestionId = event.target.parentElement.id;
+        questionAreaId = event.target.parentElement.id.split("question")[1];
+
     }else{
-        event.target.classList.toggle("selected-question");
-        selectedQuestionId = event.target.id
+        event.target.className = "question selected-question";
+        selectedQuestionId = event.target.id;
+        questionAreaId = event.target.id.split("question")[1];
     }
+    document.querySelector("#q" + questionAreaId).className = "question-area";
+}
+
+function backToProjectsPage() {
+    document.querySelector("#projects_project_creation_window").classList.toggle("disabled");
+    document.querySelector("#projects_page").classList.toggle("disabled");
+}
+
+function saveProject(){
+    let count = document.querySelectorAll(".question").length;
+
+    let jsonString = '{ "questions" : [';
+    let jsonQuestionString = ""
+    document.querySelectorAll(".question-area").forEach(element => {
+        jsonQuestionString += '{"geogebraLink" : "' + element.querySelector(".geogebra-link input").value + '",';
+        jsonQuestionString += '"text" : "' + element.querySelector(".question-text").textContent + '",';
+        jsonQuestionString += '"answers" : [';
+        answers = element.querySelectorAll(".answer");
+        if(answers.length > 0){
+            answers.forEach(answer => {
+                jsonQuestionString += '{"text" : "' + answer.querySelector("p").textContent + '",';
+                jsonQuestionString += '"isRight" : ' + answer.querySelector("input").checked + '},'
+            })
+            jsonQuestionString = jsonQuestionString.slice(0, -1);
+        }
+        jsonQuestionString += ']},';
+    })
+    jsonQuestionString = jsonQuestionString.slice(0, -1);
+    jsonString += jsonQuestionString;
+    jsonString += ']}';
+    console.log(jsonString);
+}
+
+function textAreaAdjust(element) {
+    element.style.height = "1px";
+    element.style.height = (element.scrollHeight)+"px";
 }
 
