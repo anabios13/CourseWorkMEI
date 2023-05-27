@@ -170,7 +170,7 @@ function editCatalog(event){
     let id = event.target.parentElement.parentElement.id;
 
     document.querySelector("#" + id + " p").classList.toggle("disabled");
-    event.target.src="disk.svg";
+    event.target.src="/static/disk.svg";
 
     let textArea  = document.createElement("textarea");
     textArea.className = "catalog-editor catalog-name";
@@ -192,7 +192,7 @@ function saveCatalogName(event){
     catalogName.textContent = textArea.value;
     textArea.remove();
 
-    event.target.src="pencil.svg";
+    event.target.src="/static/pencil.svg";
     event.target.removeEventListener("click", saveCatalogName);
     event.target.addEventListener('click', editCatalog);
 }
@@ -201,7 +201,7 @@ function addFavoritCatalog(event){
     let id = event.target.parentElement.parentElement.id;
     let catalog = document.querySelector("#" + id);
 
-    event.target.src="yellow-star.svg";
+    event.target.src="/static/yellow-star.svg";
     event.target.removeEventListener("click", addFavoritCatalog);
     event.target.addEventListener('click', removeFavoritCatalog);
 
@@ -212,7 +212,7 @@ function removeFavoritCatalog(event){
     let id = event.target.parentElement.parentElement.id;
     let catalog = document.querySelector("#" + id);
 
-    event.target.src="star.svg";
+    event.target.src="/static/star.svg";
     event.target.removeEventListener("click", removeFavoritCatalog);
     event.target.addEventListener('click', addFavoritCatalog);
 
@@ -243,10 +243,10 @@ function appendCatalog(element){
     let html = '<div id="' + id +'" onclick="openCatalog(event);" class="catalog">'
     + '<p class="catalog-name">' + element["directoryName"] + '</p>'
     + '<div class="catalog-actions">'
-        + '<img src="' + ((element['directoryIsVisible'] != "null") ? "eye-on.svg" : "eye-off.svg") + '" class="icon">'
-        + '<img src="' + ((element["directoryIsFavorite"] != "null") ? "yellow-star.svg": "star.svg") + '" class="icon">'
-        + '<img src="pencil.svg" class="icon">'
-        + '<img  onclick="deleteCatalog(event);" src="cross-circle.svg" class="icon">'
+        + '<img src="/static/' + ((element['directoryIsVisible'] != "null") ? "eye-on.svg" : "eye-off.svg") + '" class="icon">'
+        + '<img src="/static/' + ((element["directoryIsFavorite"] != "null") ? "yellow-star.svg": "star.svg") + '" class="icon">'
+        + '<img src="/static/pencil.svg" class="icon">'
+        + '<img  onclick="deleteCatalog(event);" src="/static/cross-circle.svg" class="icon">'
     + '</div>'
 + '</div>';
 
@@ -272,8 +272,8 @@ function addCatalog(event){
     let html = '<div id="' + id + '" onclick="openCatalog(event);" class="catalog new-catalog">'
     + '<textarea class="catalog-editor catalog-name">Новый каталог</textarea>'
     + '<div class="catalog-actions">'
-        + '<img src="disk.svg" class="icon">'
-        + '<img  onclick="deleteCatalog(event);" src="cross-circle.svg" class="icon">'
+        + '<img src="/static/disk.svg" class="icon">'
+        + '<img  onclick="deleteCatalog(event);" src="/static/cross-circle.svg" class="icon">'
     + '</div>'
     + '</div>';
 
@@ -323,7 +323,7 @@ function getStartPageInfo(){
 function appendNote(jsonString){
     let html = '<div onclick="showNoteEditingWindow(event);" class="note">\n' +
         '                            <p id="note-'+ getNextNoteId() + '">' + jsonString["noteText"] + '</p>\n' +
-        '                            <img onclick="deleteNote(event);" src="cross-circle.svg" alt="" class="icon">\n' +
+        '                            <img onclick="deleteNote(event);" src="/static/cross-circle.svg" alt="" class="icon">\n' +
         '                        </div>'
 
     document.querySelector("#main_page-list-notes").insertAdjacentHTML("beforeend", html);

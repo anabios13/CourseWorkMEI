@@ -17,7 +17,7 @@ function appendQuestion(){
     ajaxTest["questions"].forEach(element => {
         let html = '<div id="question-area-'+ getNextQuestionId() +'" class="testing_page-question-area'+ ((questionId > 1) ? " disabled" : "") + '">' +
             '<div id="testing_page-attachment">\n' +
-            '                   <iframe src="' + element["geogebraLink"] + '"></iframe>\n' +
+            '                   <iframe src="/static/' + element["geogebraLink"] + '"></iframe>\n' +
             '               </div>\n' +
             '               <div class="question-text" id="testing_page-question-text">' + element["text"] + '</div>\n' +
             '               <div class="answer-buttons-list" id="testing_page-list-answers">' + appendAnswers(element) + '</div>' +

@@ -24,10 +24,10 @@ function appendProject(element, parentId){
     let html ='<div id="p' + projectId + '" onclick="openProject(event);" class="project">'
     + '<p class="catalog-name">' + element['progectName'] + '</p>'
      + '<div class="catalog-actions">'
-         + '<img src="' + ((element['shared']) ? "eye-on.svg" : "eye-off.svg") + '" class="icon">'
-         + '<img  src="' + ((parentId == "projects_favorit-projects") ? "yellow-star.svg" : "star.svg") + '" class="icon">'
-         + '<img src="pencil.svg" class="icon">'
-         + '<img  onclick="deleteCatalog(event);" src="cross-circle.svg" class="icon">'
+         + '<img src="/static/' + ((element['shared']) ? "eye-on.svg" : "eye-off.svg") + '" class="icon">'
+         + '<img  src="/static/' + ((parentId == "projects_favorit-projects") ? "yellow-star.svg" : "star.svg") + '" class="icon">'
+         + '<img src="/static/pencil.svg" class="icon">'
+         + '<img  onclick="deleteCatalog(event);" src="/static/cross-circle.svg" class="icon">'
      + '</div>'
  + '</div>'
     parent.insertAdjacentHTML('beforeend', html)
@@ -53,7 +53,7 @@ function addFavoritProject(event){
     let id = event.target.parentElement.parentElement.id;
     let catalog = document.querySelector("#" + id);
 
-    catalog.querySelector("img.icon:nth-child(2)").src="yellow-star.svg";
+    catalog.querySelector("img.icon:nth-child(2)").src="/static/yellow-star.svg";
     event.target.removeEventListener("click", addFavoritProject);
     event.target.addEventListener('click', removeFavoritProject);
 
@@ -65,7 +65,7 @@ function removeFavoritProject(event){
     let id = event.target.parentElement.parentElement.id;
     let catalog = document.querySelector("#" + id);
 
-    catalog.querySelector("img.icon:nth-child(2)").src="star.svg";
+    catalog.querySelector("img.icon:nth-child(2)").src="/static/star.svg";
 
     event.target.removeEventListener("click", removeFavoritProject);
     event.target.addEventListener('click', addFavoritProject);
@@ -102,7 +102,7 @@ function editProject(event){
 
     document.querySelector("#" + id + " p").classList.toggle("disabled");
 
-    event.target.src="disk.svg";
+    event.target.src="/static/disk.svg";
     event.target.removeEventListener("click", editProject);
     event.target.addEventListener("click", saveProject);
 

@@ -2,7 +2,7 @@ function addNewAnswer(event){
     let html = '<div class="answer"><' +
         'input type="checkbox">\n' +
         '<p contentEditable></p>' +
-       ' <img onclick="deleteAnswer(event);" src="cross-circle.svg" class="icon">'+
+       ' <img onclick="deleteAnswer(event);" src="/static/cross-circle.svg" class="icon">'+
         '</div>';
     let questionAreaId = "";
     if (event.target.parentElement.parentElement.id != ""){
@@ -60,7 +60,7 @@ function addNewQuestion(){
     let questionId = getNextQuestionId();
     let html = '<div onclick="selectQuestion(event)" id="question' + questionId + '" class="question">\n' +
         '           <p onclick="selectQuestion(event)">Вопрос ' + questionId +'</p>\n' +
-        '            <img onclick="removeQuestion(event)" src="cross-circle.svg" class="icon">\n' +
+        '            <img onclick="removeQuestion(event)" src="/static/cross-circle.svg" class="icon">\n' +
         '        </div>'
     let addQuestion = document.querySelector("#add-question");
     addQuestion.insertAdjacentHTML("beforebegin", html);
@@ -75,7 +75,7 @@ function addNewQuestion(){
         '                        <p class="question-text" contentEditable></p>\n' +
         '                        <div class="answer-buttons-list">\n' +
         '                            <div onclick="addNewAnswer(event)" class="add-answer">\n' +
-        '                                <img src="add.svg" alt="" class="icon">\n' +
+        '                                <img src="/static/add.svg" alt="" class="icon">\n' +
         '                            </div>\n' +
         '                        </div>\n' +
         '                    </div>'
