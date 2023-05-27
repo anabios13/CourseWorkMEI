@@ -37,20 +37,23 @@ function openDilogueWindow(headText, messageText, inputShow, agreeButtonText, di
     dilogueBackground.appendChild(dialogueWindow);
 
     document.body.append(dilogueBackground);
-
-
 }
 
-var id = 0;
+getStartPageInfo();
 
-function getId(){
-    id += 1;
-    return id;
+// Удалить catalogId, noteId и функции, изменяющие их, как только Олег начнёт передавать id в json
+var catalogId = 0;
+
+function getNextCatalogId(){
+    catalogId += 1;
+    return catalogId;
 }
 
-function setPreventId(){
-    id -= 1;
-    return id;
+var NoteId = 0;
+
+function getNextNoteId(){
+    NoteId += 1;
+    return NoteId;
 }
 
 document.querySelector('.exit-icon').addEventListener('click', () => openDilogueWindow("Выход", "Вы хотите выйти?", false, "Ага", "Не-а"))
@@ -109,11 +112,11 @@ function addNote(){
 
         let text = document.createElement("p");
         text.innerText = document.querySelector(".note-editor").value;
-        text.id = "n" + getId();
+        text.id = "note-" + getNextCatalogId();
 
         let deleteImgButton = document.createElement("img");
         deleteImgButton.src = "cross-circle.svg";
-        deleteImgButton.className = "round-button";
+        deleteImgButton.className = "icon";
         deleteImgButton.addEventListener('click',() => deleteNote(event));
 
         let note = document.createElement("div");
@@ -152,7 +155,7 @@ function openCatalog(event){
     }
 
     if(catalogName != ""){
-        document.querySelector("#start_page").classList.toggle("disabled");
+        document.querySelector("#main_page").classList.toggle("disabled");
         document.querySelector("#projects_page").classList.toggle("disabled");
         document.querySelector("#catalog-name").textContent = catalogName;
     }
@@ -177,7 +180,6 @@ function editCatalog(event){
     event.target.addEventListener('click', saveCatalogName);
 
     document.querySelector("#" + id).prepend(textArea);
-    document.querySelector("#" + id + " img.icon:nth-child(3)").before(saveCatalogName);
 }
 
 function saveCatalogName(event){
@@ -236,30 +238,19 @@ function stopCatalogSharing(event){
     event.target.addEventListener('click', startCatalogSharing);
 }
 
-function getCatalogs(userId){
-    //Выполняется запрос
-
-    let result = '{"catalogs": [ {"catalogName": "Имя проекта 1", "isFavorit": false, "isShared": true},{"catalogName": "Имя проекта 2", "isFavorit": true, "isShared": true}, {"catalogName": "Имя проекта 3", "isFavorit": false, "isShared": false},{"catalogName": "Имя проекта 4", "isFavorit": false, "isShared": false}]}';
-    let json = JSON.parse(result);
-    console.log(json);
-
-    json['catalogs'].forEach(element => appendCatalog(element));
-
-}
-
 function appendCatalog(element){
-    let id = "c" + getId();
+    let id = "c" + getNextCatalogId();
     let html = '<div id="' + id +'" onclick="openCatalog(event);" class="catalog">'
-    + '<p class="catalog-name">' + element["catalogName"] + '</p>'
+    + '<p class="catalog-name">' + element["directoryName"] + '</p>'
     + '<div class="catalog-actions">'
-        + '<img src="' + ((element['shared']) ? "eye-on.svg" : "eye-off.svg") + '" class="icon">'
-        + '<img src="' + ((element["isFavorit"]) ? "yellow-star.svg": "star.svg") + '" class="icon">'
+        + '<img src="' + ((element['directoryIsVisible'] != "null") ? "eye-on.svg" : "eye-off.svg") + '" class="icon">'
+        + '<img src="' + ((element["directoryIsFavorite"] != "null") ? "yellow-star.svg": "star.svg") + '" class="icon">'
         + '<img src="pencil.svg" class="icon">'
         + '<img  onclick="deleteCatalog(event);" src="cross-circle.svg" class="icon">'
     + '</div>'
 + '</div>';
 
-if(element["isFavorit"]){
+if(element["directoryIsFavorite"] != "null"){
     document.querySelector("#favorit-catalogs").insertAdjacentHTML("beforeend", html);
     document.querySelector("#" + id + "> div:nth-child(2) > img:nth-child(2)").addEventListener("click", removeFavoritCatalog);
 }else{
@@ -267,7 +258,7 @@ if(element["isFavorit"]){
     document.querySelector("#" + id + "> div:nth-child(2) > img:nth-child(2)").addEventListener("click", addFavoritCatalog);
 }
 
-if(element['shared']){
+if(element["directoryIsFavorite"] != "null"){
     document.querySelector("#" + id + "> div:nth-child(2) > img:nth-child(1)").addEventListener("click", stopCatalogSharing);
    }else{
     document.querySelector("#" + id + "> div:nth-child(2) > img:nth-child(1)").addEventListener("click", startCatalogSharing);
@@ -276,10 +267,8 @@ if(element['shared']){
     document.querySelector("#" + id + "> div:nth-child(2) > img:nth-child(3)").addEventListener("click", editCatalog);
 }
 
-getCatalogs(1);
-
 function addCatalog(event){
-    let id = "c" + getId()
+    let id = "c" + getNextCatalogId()
     let html = '<div id="' + id + '" onclick="openCatalog(event);" class="catalog new-catalog">'
     + '<textarea class="catalog-editor catalog-name">Новый каталог</textarea>'
     + '<div class="catalog-actions">'
@@ -301,6 +290,45 @@ function saveNewCatalog(event){
 
     newCatalog.remove();
 
-    setPreventId()
-    appendCatalog('{"catalogName": "' + name + '", "isFavorit": false, "isShared": false}');
+    let jsonString = JSON.parse('{"directoryName": "' + name + '", "directoryIsFavorite": "null", "directoryIsVisible": "null"}')
+    appendCatalog(jsonString);
+}
+
+function getStartPageInfo(){
+    let personId = 1;
+
+    let request = new XMLHttpRequest();
+    let url = "http://localhost:8080/profile/show/" + personId;
+
+    request.open('GET', url);
+    request.setRequestHeader('Content-Type', 'application/x-www-form-url');
+    request.addEventListener("readystatechange", () => {
+        if (request.readyState === 4 && request.status === 200) {
+            let jsonAnswer = JSON.parse(request.responseText);
+
+            jsonAnswer["directoryDTOList"].forEach(catalog => {
+                appendCatalog(catalog);
+            });
+
+            jsonAnswer["noteDTOList"].forEach(note => {
+                appendNote(note);
+            })
+
+            appendPersonName(jsonAnswer)
+        }
+    });
+    request.send();
+}
+
+function appendNote(jsonString){
+    let html = '<div onclick="showNoteEditingWindow(event);" class="note">\n' +
+        '                            <p id="note-'+ getNextNoteId() + '">' + jsonString["noteText"] + '</p>\n' +
+        '                            <img onclick="deleteNote(event);" src="cross-circle.svg" alt="" class="icon">\n' +
+        '                        </div>'
+
+    document.querySelector("#main_page-list-notes").insertAdjacentHTML("beforeend", html);
+}
+
+function appendPersonName(jsonString){
+    document.querySelector("#person-name").textContent = jsonString["personName"];
 }

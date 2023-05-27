@@ -70,7 +70,9 @@
                         </div>
                     </div>
                 </div>
-
+    
+                <!-- СОЗДАНИЕ И ДОБАВЛЕНИЕ НОВОЙ ЗАМЕТКИ -->
+    
                 <div id="note-add-block" class="disabled">
                     <div id="note-adding-window" class="note-adding-window">
                         <div class="main_page-list-notes-head-search-block">
@@ -149,6 +151,10 @@
         </div>
               <div id="question-creation-page">
                 <div id="question-window">
+<!--                    <div id="question-buttons">-->
+<!--                        <img id="previous-question" class="icon" src="triangle.png" alt="">-->
+<!--                        <img src="triangle.png" alt="" class="icon" id="next-question">-->
+<!--                    </div>-->
                 </div>
                 <div id="question-list">
                     <div onclick="addNewQuestion()" id="add-question">
@@ -163,6 +169,19 @@
     <script src="/static/scripts/start_page.js"></script>
     <script src="/static/scripts/global_functions.js"></script>
     <script src="/static/scripts/project_creation_page.js"></script>
+    <!-- Блок для создания/удаления объектов -->
+    
+    <!-- <div class="dialogue-background">
+        <div class="dialogue-window">
+            <h2 class="head">Добавление Заметки</h2>
+            <p class="message">Введите текст заметки</p>
+            <input type="text" class="answer">
+            <div class="buttons">
+                <button class="disagree">Отмена</button>
+                <button class="agree">Добавить</button>
+            </div>
+        </div>
+    </div> -->
     </body>
 </html>
    
