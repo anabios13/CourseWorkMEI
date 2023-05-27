@@ -10,6 +10,5 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/templates/profile/");
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-
     }
 }

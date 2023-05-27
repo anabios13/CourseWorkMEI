@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 
 public class PersonDTO {
+    PersonDTO(){}
     @Size(min = 1, max = 50, message = "Email should be between 1 and 50 characters")
     @NotEmpty(message = "name of person should not be empty")
     private String personName;

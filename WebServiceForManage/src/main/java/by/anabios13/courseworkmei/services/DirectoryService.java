@@ -1,11 +1,9 @@
 package by.anabios13.courseworkmei.services;
 
 import by.anabios13.courseworkmei.models.Directory;
-import by.anabios13.courseworkmei.models.Note;
 import by.anabios13.courseworkmei.models.Person;
 import by.anabios13.courseworkmei.repositories.DirectoryRepository;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Persistable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

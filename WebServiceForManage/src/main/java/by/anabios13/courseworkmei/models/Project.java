@@ -29,10 +29,10 @@ public class Project {
     private String projectName;
 
     @Column(name = "project_is_visible")
-    private Boolean projectIsVisible;
+    private Short projectIsVisible;
 
     @Column(name = "project_is_favorite")
-    private Boolean projectIsFavorite;
+    private Short projectIsFavorite;
 
     @Column(name = "time_of_project_creation")
     @Temporal(TemporalType.TIMESTAMP)
@@ -78,19 +78,19 @@ public class Project {
         this.projectName = projectName;
     }
 
-    public Boolean getProjectIsVisible() {
+    public Short getProjectIsVisible() {
         return projectIsVisible;
     }
 
-    public void setProjectIsVisible(Boolean projectIsVisible) {
+    public void setProjectIsVisible(Short projectIsVisible) {
         this.projectIsVisible = projectIsVisible;
     }
 
-    public Boolean getProjectIsFavorite() {
+    public Short getProjectIsFavorite() {
         return projectIsFavorite;
     }
 
-    public void setProjectIsFavorite(Boolean projectIsFavorite) {
+    public void setProjectIsFavorite(Short projectIsFavorite) {
         this.projectIsFavorite = projectIsFavorite;
     }
 

@@ -1,6 +1,5 @@
 package by.anabios13.courseworkmei.services;
 
-import by.anabios13.courseworkmei.models.Note;
 import by.anabios13.courseworkmei.models.Project;
 import by.anabios13.courseworkmei.repositories.ProjectRepository;
 import org.springframework.data.domain.PageRequest;
@@ -8,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,12 +16,14 @@ import java.util.Optional;
 public class ProjectService {
     private final ProjectRepository projectRepository;
     private final PeopleService peopleService;
+    private final DirectoryService directoryService;
 
     private final int projectsPerPage = 10;//amount of directories in the page
 
-    public ProjectService(ProjectRepository projectRepository, PeopleService peopleService) {
+    public ProjectService(ProjectRepository projectRepository, PeopleService peopleService, DirectoryService directoryService) {
         this.projectRepository = projectRepository;
         this.peopleService = peopleService;
+        this.directoryService = directoryService;
     }
 
 
@@ -39,10 +41,11 @@ public class ProjectService {
         return foundProject.orElse(null);
     }
 
-    //Method for saving blank by authorisation user
     @Transactional
-    public void save(Project project, Integer id) {
-        project.setProjectOwner(peopleService.findOne(id));//
+    public void save(Project project, Integer personId,Integer directoryId) {
+        project.setProjectOwner(peopleService.findOne(personId));//
+        project.setProjectDirectory(directoryService.findOne(directoryId));
+        project.setTimeOfProjectCreation(new Date());
         projectRepository.save(project);
     }
 

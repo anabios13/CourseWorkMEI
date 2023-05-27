@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +44,7 @@ public class NoteService {
     //Method for saving blank by authorisation user
     @Transactional
     public void save(Note note, Integer id) {
+        note.setTimeOfNoteCreation(new Date());
         note.setNoteOwner(peopleService.findOne(id));//
         noteRepository.save(note);
     }

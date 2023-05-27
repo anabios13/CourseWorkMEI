@@ -13,6 +13,19 @@ public class NoteDTO {
     @Size(min = 1, max = 500, message = "Note should be between 1 and 500 characters")
     @NotEmpty(message = "note should not be empty")
     private String noteText;
+    private int noteId;
+    public NoteDTO() {}
+    public NoteDTO(String noteText) {
+        this.noteText = noteText;
+    }
+
+    public int getNoteId() {
+        return noteId;
+    }
+
+    public void setNoteId(int noteId) {
+        this.noteId = noteId;
+    }
 
     public NoteDTO(Note note) {
         this.noteText = note.getNoteText();

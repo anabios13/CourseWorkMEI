@@ -26,15 +26,15 @@ public class Directory {
     private String directoryName;
 
     @Column(name = "directory_is_visible")
-    private Boolean directoryIsVisible;
+    private Short directoryIsVisible;
 
     @Column(name = "directory_is_favorite")
-    private Boolean directoryIsFavorite;
+    private Short directoryIsFavorite;
 
     public Directory() {
     }
 
-    public Directory(Person owner, String directoryName, Boolean directoryIsVisible, Boolean directoryIsFavorite) {
+    public Directory(Person owner, String directoryName, Short directoryIsVisible, Short directoryIsFavorite) {
         this.directoryOwner = owner;
         this.directoryName = directoryName;
         this.directoryIsVisible = directoryIsVisible;
@@ -73,19 +73,19 @@ public class Directory {
         this.directoryName = directoryName;
     }
 
-    public Boolean getDirectoryIsVisible() {
+    public Short getDirectoryIsVisible() {
         return directoryIsVisible;
     }
 
-    public void setDirectoryIsVisible(Boolean directoryIsVisible) {
+    public void setDirectoryIsVisible(Short directoryIsVisible) {
         this.directoryIsVisible = directoryIsVisible;
     }
 
-    public Boolean getDirectoryIsFavorite() {
+    public Short getDirectoryIsFavorite() {
         return directoryIsFavorite;
     }
 
-    public void setDirectoryIsFavorite(Boolean directoryIsFavorite) {
+    public void setDirectoryIsFavorite(Short directoryIsFavorite) {
         this.directoryIsFavorite = directoryIsFavorite;
     }
 

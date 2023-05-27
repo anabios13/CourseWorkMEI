@@ -1,53 +1,79 @@
 package by.anabios13.courseworkmei.dto;
 
-import by.anabios13.courseworkmei.models.Directory;
-import by.anabios13.courseworkmei.models.Person;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 import java.util.Date;
 
 public class ProjectDTO {
+    ProjectDTO() {
+    }
 
-    private Person projectOwner;
+    public int getProjectId() {
+        return projectId;
+    }
+    private int projectOwnerId;
+    private int projectDirectoryId;
+
+    public int getProjectOwnerId() {
+        return projectOwnerId;
+    }
+
+    public void setProjectOwnerId(int projectOwnerId) {
+        this.projectOwnerId = projectOwnerId;
+    }
+
+    public int getProjectDirectoryId() {
+        return projectDirectoryId;
+    }
+
+    public void setProjectDirectoryId(int projectDirectoryId) {
+        this.projectDirectoryId = projectDirectoryId;
+    }
+
+    public void setProjectId(int projectId) {
+        this.projectId = projectId;
+    }
+
+    private int projectId;
 
 
-    private Directory projectDirectory;
+//    private Person projectOwner;
+//
+//
+//    private Directory projectDirectory;
 
     @Size(min = 1, max = 50, message = "name of project should be between 1 and 50 characters")
     @NotEmpty(message = "name of project should not be empty")
     private String projectName;
 
 
-    private Boolean projectIsVisible;
+    private Short projectIsVisible;
 
 
-    private Boolean projectIsFavorite;
+    private Short projectIsFavorite;
 
 
-    @Temporal(TemporalType.TIMESTAMP)
     private Date timeOfProjectCreation;
 
-    @Size(min = 1, max = 50, message = "project category should be between 1 and 50 characters")
-    @NotEmpty(message = "project category should not be empty")
+
     private String projectCategory;
 
-    public Person getProjectOwner() {
-        return projectOwner;
-    }
-
-    public void setProjectOwner(Person projectOwner) {
-        this.projectOwner = projectOwner;
-    }
-
-    public Directory getProjectDirectory() {
-        return projectDirectory;
-    }
-
-    public void setProjectDirectory(Directory projectDirectory) {
-        this.projectDirectory = projectDirectory;
-    }
+//    public Person getProjectOwner() {
+//        return projectOwner;
+//    }
+//
+//    public void setProjectOwner(Person projectOwner) {
+//        this.projectOwner = projectOwner;
+//    }
+//
+//    public Directory getProjectDirectory() {
+//        return projectDirectory;
+//    }
+//
+//    public void setProjectDirectory(Directory projectDirectory) {
+//        this.projectDirectory = projectDirectory;
+//    }
 
     public String getProjectName() {
         return projectName;
@@ -57,19 +83,19 @@ public class ProjectDTO {
         this.projectName = projectName;
     }
 
-    public Boolean getProjectIsVisible() {
+    public Short getProjectIsVisible() {
         return projectIsVisible;
     }
 
-    public void setProjectIsVisible(Boolean projectIsVisible) {
+    public void setProjectIsVisible(Short projectIsVisible) {
         this.projectIsVisible = projectIsVisible;
     }
 
-    public Boolean getProjectIsFavorite() {
+    public Short getProjectIsFavorite() {
         return projectIsFavorite;
     }
 
-    public void setProjectIsFavorite(Boolean projectIsFavorite) {
+    public void setProjectIsFavorite(Short projectIsFavorite) {
         this.projectIsFavorite = projectIsFavorite;
     }
 

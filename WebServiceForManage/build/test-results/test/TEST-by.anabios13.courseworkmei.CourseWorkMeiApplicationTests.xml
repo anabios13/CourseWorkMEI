@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="by.anabios13.courseworkmei.CourseWorkMeiApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-13T09:35:50" hostname="DESKTOP-40M7ARN" time="0.22">
+<testsuite name="by.anabios13.courseworkmei.CourseWorkMeiApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-25T09:27:47" hostname="DESKTOP-40M7ARN" time="0.186">
   <properties/>
-  <testcase name="contextLoads()" classname="by.anabios13.courseworkmei.CourseWorkMeiApplicationTests" time="0.22"/>
-  <system-out><![CDATA[12:35:44.371 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [CourseWorkMeiApplicationTests]: using SpringBootContextLoader
-12:35:44.387 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [by.anabios13.courseworkmei.CourseWorkMeiApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-12:35:44.387 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [by.anabios13.courseworkmei.CourseWorkMeiApplicationTests]: CourseWorkMeiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-12:35:44.434 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [CourseWorkMeiApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-12:35:44.574 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [D:\JavaProjects\CourseWorkProj\CourseWorkMEI\WebServiceForManage\build\classes\java\main\by\anabios13\courseworkmei\CourseWorkMeiApplication.class]
-12:35:44.574 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration by.anabios13.courseworkmei.CourseWorkMeiApplication for test class by.anabios13.courseworkmei.CourseWorkMeiApplicationTests
-12:35:44.778 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [CourseWorkMeiApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-12:35:44.778 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [CourseWorkMeiApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+  <testcase name="contextLoads()" classname="by.anabios13.courseworkmei.CourseWorkMeiApplicationTests" time="0.186"/>
+  <system-out><![CDATA[12:27:41.634 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [CourseWorkMeiApplicationTests]: using SpringBootContextLoader
+12:27:41.650 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [by.anabios13.courseworkmei.CourseWorkMeiApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+12:27:41.650 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [by.anabios13.courseworkmei.CourseWorkMeiApplicationTests]: CourseWorkMeiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+12:27:41.682 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [CourseWorkMeiApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer, WebTestClientContextCustomizer]
+12:27:41.770 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [D:\JavaProjects\CourseWorkProj\CourseWorkMEI\WebServiceForManage\build\classes\java\main\by\anabios13\courseworkmei\CourseWorkMeiApplication.class]
+12:27:41.770 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration by.anabios13.courseworkmei.CourseWorkMeiApplication for test class by.anabios13.courseworkmei.CourseWorkMeiApplicationTests
+12:27:41.923 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [CourseWorkMeiApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+12:27:41.923 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [CourseWorkMeiApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -19,20 +19,20 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.4)
 
-2023-05-13T12:35:45.295+03:00  INFO 23632 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : Starting CourseWorkMeiApplicationTests using Java 17.0.1 with PID 23632 (started by user in D:\JavaProjects\CourseWorkProj\CourseWorkMEI\WebServiceForManage)
-2023-05-13T12:35:45.295+03:00  INFO 23632 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : No active profile set, falling back to 1 default profile: "default"
-2023-05-13T12:35:46.442+03:00  INFO 23632 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-05-13T12:35:46.568+03:00  INFO 23632 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 4 JPA repository interfaces.
-2023-05-13T12:35:47.320+03:00  INFO 23632 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-05-13T12:35:47.648+03:00  INFO 23632 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@335f5c69
-2023-05-13T12:35:47.648+03:00  INFO 23632 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-05-13T12:35:47.789+03:00  INFO 23632 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-05-13T12:35:47.867+03:00  INFO 23632 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-05-13T12:35:48.494+03:00  INFO 23632 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
-2023-05-13T12:35:49.519+03:00  INFO 23632 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-05-13T12:35:49.534+03:00  INFO 23632 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-05-13T12:35:50.301+03:00  WARN 23632 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-05-13T12:35:50.739+03:00  INFO 23632 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : Started CourseWorkMeiApplicationTests in 5.897 seconds (process running for 7.89)
+2023-05-25T12:27:42.302+03:00  INFO 20608 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : Starting CourseWorkMeiApplicationTests using Java 17.0.1 with PID 20608 (started by user in D:\JavaProjects\CourseWorkProj\CourseWorkMEI\WebServiceForManage)
+2023-05-25T12:27:42.310+03:00  INFO 20608 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2023-05-25T12:27:43.210+03:00  INFO 20608 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-25T12:27:43.434+03:00  INFO 20608 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 209 ms. Found 4 JPA repository interfaces.
+2023-05-25T12:27:44.110+03:00  INFO 20608 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-25T12:27:44.374+03:00  INFO 20608 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5ec88f9e
+2023-05-25T12:27:44.374+03:00  INFO 20608 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-25T12:27:44.439+03:00  INFO 20608 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-25T12:27:44.511+03:00  INFO 20608 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-25T12:27:44.999+03:00  INFO 20608 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2023-05-25T12:27:45.937+03:00  INFO 20608 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-25T12:27:45.953+03:00  INFO 20608 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-25T12:27:46.794+03:00  WARN 20608 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-25T12:27:47.323+03:00  INFO 20608 --- [    Test worker] b.a.c.CourseWorkMeiApplicationTests      : Started CourseWorkMeiApplicationTests in 5.344 seconds (process running for 6.76)
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

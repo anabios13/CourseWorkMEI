@@ -32,4 +32,4 @@ WebServiceForManage\src\main\resources\application.properties
 конфигурация для заполнени бд находится по пути:
 WebServiceForManage\DBSQLRequests.txt
 
-
+Добавлена возможность раздавать статику по запросу "localhost:8080/resources/start_page.html"
