@@ -77,7 +77,7 @@ function removeFavoritProject(event){
 function startProjectSharing(event){
     let projectid = event.target.parentElement.parentElement.id;
     console.log('Проект стал доступен всем ' + projectid);
-    event.target.src = "eye-on.svg";
+    event.target.src = "/static/eye-on.svg";
 
     event.target.removeEventListener("click", startProjectSharing);
     event.target.addEventListener('click', stopProjectSharing);
@@ -86,7 +86,7 @@ function startProjectSharing(event){
 function stopProjectSharing(event){
     let projectid = event.target.parentElement.parentElement.id;
     console.log('Проект стал приватным ' + projectid);
-    event.target.src = "eye-off.svg";
+    event.target.src = "/static/eye-off.svg";
 
     event.target.removeEventListener("click", stopProjectSharing);
     event.target.addEventListener('click', startProjectSharing);
@@ -115,7 +115,7 @@ function editProject(event){
 }
 
 function saveProject(event){
-    console.log("lol")
+    console.log("Сохранение пока не работает");
 }
 
 function createNewProject(event){
@@ -124,5 +124,5 @@ function createNewProject(event){
 }
 
 function openProject(event){
-    console.log("Что-то там");
+    console.log("Открытие проекта пока не работает");
 }
