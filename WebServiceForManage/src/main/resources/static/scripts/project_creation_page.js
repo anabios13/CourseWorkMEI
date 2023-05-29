@@ -134,8 +134,3 @@ function saveProject(){
     console.log(jsonString);
 }
 
-function textAreaAdjust(element) {
-    element.style.height = "1px";
-    element.style.height = (element.scrollHeight)+"px";
-}
-

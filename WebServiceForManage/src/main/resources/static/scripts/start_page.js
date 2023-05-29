@@ -115,7 +115,7 @@ function addNote(){
         text.id = "note-" + getNextCatalogId();
 
         let deleteImgButton = document.createElement("img");
-        deleteImgButton.src = "cross-circle.svg";
+        deleteImgButton.src = "/static/cross-circle.svg";
         deleteImgButton.className = "icon";
         deleteImgButton.addEventListener('click',() => deleteNote(event));
 
@@ -223,7 +223,7 @@ function removeFavoritCatalog(event){
 function startCatalogSharing(event){
     let projectid = event.target.parentElement.parentElement.id;
     console.log('Каталог стал доступен всем ' + projectid);
-    event.target.src = "eye-on.svg";
+    event.target.src = "/static/eye-on.svg";
 
     event.target.removeEventListener("click", startCatalogSharing);
     event.target.addEventListener('click', stopCatalogSharing);
@@ -232,7 +232,7 @@ function startCatalogSharing(event){
 function stopCatalogSharing(event){
     let projectid = event.target.parentElement.parentElement.id;
     console.log('Каталог стал приватным ' + projectid);
-    event.target.src = "eye-off.svg";
+    event.target.src = "/static/eye-off.svg";
 
     event.target.removeEventListener("click", stopCatalogSharing);
     event.target.addEventListener('click', startCatalogSharing);
