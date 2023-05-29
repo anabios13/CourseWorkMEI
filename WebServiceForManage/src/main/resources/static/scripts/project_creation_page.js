@@ -26,16 +26,8 @@ function getNextQuestionId(){
     return questionId;
 }
 
-function setPreviousQuestionId(){
-    if(questionId > 0){
-        questionId -= 1;
-    }
-}
-
 function removeQuestion(event) {
     event.target.parentElement.remove();
-    setPreviousQuestionId();
-
     let lastId = event.target.parentElement.id.split("question")[1];
     console.log(lastId);
     document.querySelector("#q" + lastId).remove();
