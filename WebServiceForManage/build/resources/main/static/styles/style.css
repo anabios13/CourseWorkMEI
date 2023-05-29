@@ -1,0 +1,145 @@
+@import url(global_variables.css);
+
+:root {
+    --icon-size: 50px;
+    --help-box-width: 17vw;
+}
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    height: var(--element-height);
+
+    background: var(--element-color);
+}
+
+nav ul {
+    display: flex;
+
+    padding: 0;
+    margin: 0;
+
+    height: 60px;
+
+    align-items: center;
+
+    list-style: none;
+}
+
+nav ul li {
+    display: flex;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 160px;
+    height: inherit;
+
+    margin: 0;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    width: auto;
+    height: inherit;
+}
+
+.user-icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+
+    border-radius: 50%;
+
+}
+#login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: calc(160px - var(--icon-size));
+    height: inherit;
+
+    /* padding-top: 7.5px; */
+}
+
+
+.exit-icon {
+    display: flex;
+    justify-content: center;
+
+    width: var(--icon-size);
+    height: var(--icon-size);
+    padding-left: 1vw;
+}
+
+p {
+    margin: 0;
+}
+
+nav ul li:hover {
+    background-color: var(--positive-color);
+    height: 60px;
+}
+
+nav ul li.help:hover > ul{
+    display: block;
+}
+
+.help {
+    width: var(--help-box-width);
+}
+
+.sublist {
+    margin-top: 120px ;
+    position: absolute;
+    display: none;
+    background: var(--element-color);
+}
+
+.sublist li {
+    box-sizing: border-box;
+    text-align: center;
+
+    height: var(--element-height);
+    width: var(--help-box-width);
+
+    background: var(--element-color);
+    color: white;
+
+    border: 2px solid black;
+}
+
+.sublist > li:nth-child(2) {
+    border-radius: 0px 0px 10px 10px;
+}
+
+.help-icon{
+    transform: rotate(270deg);
+}
+
+.help-icon.active{
+    transform: rotate(180deg);
+}
+
+#login {
+    text-align: center;
+    align-items: center;
+}
+
+nav ul li p {
+    font-size: 1.4em;
+    color : white;
+}
