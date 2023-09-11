@@ -15,8 +15,8 @@ public class Directory {
     private int directoryId;
 
     @ManyToOne
-    @JoinColumn(name = "person_id", referencedColumnName = "person_id")
-    private Person directoryOwner;
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User directoryOwner;
 
     @OneToMany(mappedBy = "projectDirectory", cascade = CascadeType.PERSIST)
     private List <Project> projects;
@@ -34,11 +34,24 @@ public class Directory {
     public Directory() {
     }
 
-    public Directory(Person owner, String directoryName, Short directoryIsVisible, Short directoryIsFavorite) {
+    public Directory(User owner, String directoryName, Short directoryIsVisible, Short directoryIsFavorite) {
         this.directoryOwner = owner;
         this.directoryName = directoryName;
         this.directoryIsVisible = directoryIsVisible;
         this.directoryIsFavorite = directoryIsFavorite;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Directory directory = (Directory) o;
+        return Objects.equals(directoryOwner, directory.directoryOwner) && Objects.equals(directoryName, directory.directoryName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(directoryOwner, directoryName);
     }
 
     public int getDirectoryId() {
@@ -57,11 +70,11 @@ public class Directory {
         this.directoryId = directoryId;
     }
 
-    public Person getDirectoryOwner() {
+    public User getDirectoryOwner() {
         return directoryOwner;
     }
 
-    public void setDirectoryOwner(Person owner) {
+    public void setDirectoryOwner(User owner) {
         this.directoryOwner = owner;
     }
 
@@ -89,16 +102,5 @@ public class Directory {
         this.directoryIsFavorite = directoryIsFavorite;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Directory directory = (Directory) o;
-        return Objects.equals(directoryOwner, directory.directoryOwner) && Objects.equals(directoryName, directory.directoryName);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(directoryOwner, directoryName);
-    }
 }

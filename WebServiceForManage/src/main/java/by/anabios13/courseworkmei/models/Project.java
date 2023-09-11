@@ -16,8 +16,8 @@ public class Project {
     private int projectId;
 
     @ManyToOne
-    @JoinColumn(name = "person_id", referencedColumnName = "person_id")
-    private Person projectOwner;
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User projectOwner;
 
     @ManyToOne
     @JoinColumn(name = "directory_id", referencedColumnName = "directory_id")
@@ -46,6 +46,22 @@ public class Project {
     @Column(name = "project_container")
     private byte[] projectContainer;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Project project = (Project) o;
+        return Objects.equals(projectOwner, project.projectOwner) && Objects.equals(projectDirectory, project.projectDirectory) && Objects.equals(projectName, project.projectName) && Objects.equals(timeOfProjectCreation, project.timeOfProjectCreation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(projectOwner, projectDirectory, projectName, timeOfProjectCreation);
+    }
+
+    public Project() {
+    }
+
     public int getProjectId() {
         return projectId;
     }
@@ -54,11 +70,11 @@ public class Project {
         this.projectId = projectId;
     }
 
-    public Person getProjectOwner() {
+    public User getProjectOwner() {
         return projectOwner;
     }
 
-    public void setProjectOwner(Person projectOwner) {
+    public void setProjectOwner(User projectOwner) {
         this.projectOwner = projectOwner;
     }
 
@@ -118,19 +134,5 @@ public class Project {
         this.projectContainer = projectContainer;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Project project = (Project) o;
-        return Objects.equals(projectOwner, project.projectOwner) && Objects.equals(projectDirectory, project.projectDirectory) && Objects.equals(projectName, project.projectName) && Objects.equals(timeOfProjectCreation, project.timeOfProjectCreation);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(projectOwner, projectDirectory, projectName, timeOfProjectCreation);
-    }
-
-    public Project() {
-    }
 }

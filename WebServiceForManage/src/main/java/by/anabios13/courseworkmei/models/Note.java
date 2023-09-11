@@ -2,7 +2,6 @@ package by.anabios13.courseworkmei.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.Date;
@@ -17,11 +16,8 @@ public class Note {
     private int noteId;
 
     @ManyToOne
-    @JoinColumn(name = "person_id", referencedColumnName = "person_id")
-    private Person noteOwner;
-
-    public Note() {
-    }
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User noteOwner;
 
     @Size(min = 1, max = 500, message = "Note should be between 1 and 500 characters")
     @NotEmpty(message = "note should not be empty")
@@ -32,6 +28,27 @@ public class Note {
     @Temporal(TemporalType.TIMESTAMP)
     private Date timeOfNoteCreation;
 
+    public Note() {
+    }
+
+    public Note(User noteOwner, String noteText) {
+        this.noteOwner = noteOwner;
+        this.noteText = noteText;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Note note = (Note) o;
+        return Objects.equals(noteOwner, note.noteOwner) && Objects.equals(noteText, note.noteText) && Objects.equals(timeOfNoteCreation, note.timeOfNoteCreation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(noteOwner, noteText, timeOfNoteCreation);
+    }
+
     public int getNoteId() {
         return noteId;
     }
@@ -40,11 +57,11 @@ public class Note {
         this.noteId = noteId;
     }
 
-    public Person getNoteOwner() {
+    public User getNoteOwner() {
         return noteOwner;
     }
 
-    public void setNoteOwner(Person noteOwner) {
+    public void setNoteOwner(User noteOwner) {
         this.noteOwner = noteOwner;
     }
 
@@ -64,16 +81,4 @@ public class Note {
         this.timeOfNoteCreation = accountCreationTime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Note note = (Note) o;
-        return Objects.equals(noteOwner, note.noteOwner) && Objects.equals(noteText, note.noteText) && Objects.equals(timeOfNoteCreation, note.timeOfNoteCreation);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(noteOwner, noteText, timeOfNoteCreation);
-    }
 }

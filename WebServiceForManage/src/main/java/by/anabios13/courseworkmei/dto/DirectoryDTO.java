@@ -8,14 +8,6 @@ public class DirectoryDTO {
 
     private int directoryId;
 
-    public int getDirectoryId() {
-        return directoryId;
-    }
-
-    public void setDirectoryId(int directoryId) {
-        this.directoryId = directoryId;
-    }
-
     @NotEmpty
     private String directoryName;
 
@@ -24,6 +16,12 @@ public class DirectoryDTO {
 
 
     private Short directoryIsFavorite;
+
+    public DirectoryDTO(Directory directory) {
+        this.directoryName = directory.getDirectoryName();
+        this.directoryIsVisible = directory.getDirectoryIsVisible();
+        this.directoryIsFavorite = directory.getDirectoryIsFavorite();
+    }
 
     public String getDirectoryName() {
         return directoryName;
@@ -45,13 +43,17 @@ public class DirectoryDTO {
         return directoryIsFavorite;
     }
 
+    public int getDirectoryId() {
+        return directoryId;
+    }
+
+    public void setDirectoryId(int directoryId) {
+        this.directoryId = directoryId;
+    }
+
     public void setDirectoryIsFavorite(Short directoryIsFavorite) {
         this.directoryIsFavorite = directoryIsFavorite;
     }
 
-    public DirectoryDTO(Directory directory) {
-        this.directoryName = directory.getDirectoryName();
-        this.directoryIsVisible = directory.getDirectoryIsVisible();
-        this.directoryIsFavorite = directory.getDirectoryIsFavorite();
-    }
+
 }

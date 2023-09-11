@@ -1,56 +1,56 @@
 package by.anabios13.courseworkmei.dto;
 
 import by.anabios13.courseworkmei.models.Directory;
-import by.anabios13.courseworkmei.models.Person;
+import by.anabios13.courseworkmei.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileDTO {
-    // private PersonDTO personDTO;
-    private String personName;
-    private byte[] personAvatar;
+    // private UserDTO userDTO;
+    private String userName;
+    private byte[] userAvatar;
 
-    public String getPersonName() {
-        return personName;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setPersonName(String personName) {
-        this.personName = personName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public byte[] getPersonAvatar() {
-        return personAvatar;
+    public byte[] getUserAvatar() {
+        return userAvatar;
     }
 
-    public void setPersonAvatar(byte[] personAvatar) {
-        this.personAvatar = personAvatar;
+    public void setUserAvatar(byte[] userAvatar) {
+        this.userAvatar = userAvatar;
     }
 
-    public String getPersonRole() {
-        return personRole;
+    public String getUserRole() {
+        return userRole;
     }
 
-    public void setPersonRole(String personRole) {
-        this.personRole = personRole;
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
     }
 
     private List<Directory> directories;
 
-    private String personRole;
+    private String userRole;
     private List<NoteDTO> noteDTOList = new ArrayList<>();
     private List<DirectoryDTO> directoryDTOList = new ArrayList<>();
 
-    public ProfileDTO(Person person) {
-        this.personName = person.getPersonName();
-        this.personAvatar = person.getPersonAvatar();
-        this.personRole = person.getPersonRole();
+    public ProfileDTO(User user) {
+        this.userName = user.getUserName();
+        this.userAvatar = user.getUserAvatar();
+        this.userRole = user.getUserRole();
 
-        for (int i = 0; i < person.getNotes().size(); i++) {
-            this.noteDTOList.add(new NoteDTO(person.getNotes().get(i)));
+        for (int i = 0; i < user.getNotes().size(); i++) {
+            this.noteDTOList.add(new NoteDTO(user.getNotes().get(i)));
         }
-        for (int i = 0; i < person.getDirectories().size(); i++) {
-            this.directoryDTOList.add(new DirectoryDTO(person.getDirectories().get(i)));
+        for (int i = 0; i < user.getDirectories().size(); i++) {
+            this.directoryDTOList.add(new DirectoryDTO(user.getDirectories().get(i)));
         }
     }
 
