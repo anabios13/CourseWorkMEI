@@ -21,3 +21,8 @@ Availability of the web version
 
 Service architecture:
 Micro-service architecture will be used
+
+![image](https://github.com/user-attachments/assets/b3cbf967-d1ee-4446-a574-e5726cd4e6ce)
+
+![image](https://github.com/user-attachments/assets/6bdfa7d6-711b-4e16-85fc-0589078d1e8d)
+
